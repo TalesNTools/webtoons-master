@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPM Progression - Full Soundtrack</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0f0f0f;
+            color: #eee;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+        .chart-container {
+            position: relative;
+            height: 620px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        .arc-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .arc-label span {
+            padding: 4px 12px;
+            border-radius: 6px;
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Story Arc BPM Progression (Full Soundtrack)</h1>
+        <p class="subtitle">Emotional Rollercoaster • Vertical Scroll Webtoon Planning Tool</p>
+
+        <!-- Arc Labels -->
+        <div class="arc-label">
+            <span style="background:#ff9f9f;">Arc I</span>
+            <span style="background:#a0d8ff;">Arc II</span>
+            <span style="background:#c9b3ff;">Arc III</span>
+            <span style="background:#b3ffc9;">Arc IV</span>
+            <span style="background:#ffc9e0;">Arc V</span>
+            <span style="background:#b3f0ff;">Arc VI</span>
+            <span style="background:#ffe0b3;">Arc VII</span>
+            <span style="background:#f0c9ff;">Arc VIII</span>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="bpmChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('bpmChart');
+
+        const data = {
+            labels: [
+                "It’s My Life", "Falling Inside the Black", "Pretend My Pain Away", "Would Anyone Care",
+                "Anyone But Me", "Who I Am", "Voices In My Head", "Leave a Light On", "Easy’s Never Been This Hard",
+                "You Are Enough", "The Last Night",
+                "Madhouse", "Yours to Hold", "Words That Don’t Exist", "Just a Dream", "Hymn For The Missing", "Not Gonna Die",
+                "You Are Loved", "When You Say You Love Me", "World on Fire",
+                "Reason to Live", "Serenity",
+                "Sad Song", "The Oath", "Rewrite the Stars", "Fight Song", "Point Of No Return",
+                "Our King Is Coming", "Hail to the King", "Comatose", "Rebirthing", "Fire and Fury", "Monster", "I’d Come For You",
+                "Under Your Scars", "All Of Me", "You Raise Me Up"
+            ],
+            datasets: [{
+                label: 'BPM',
+                data: [
+                    120, 93, 144, 140,
+                    155, 135, 173, 110, 95,
+                    114, 170,
+                    167, 152, 77, 82, 90, 172,
+                    104, 126, 113,
+                    139, 110,
+                    85, 108, 125, 176, 140,
+                    75, 118, 85, 176, 120, 135, 133,
+                    82, 120, 118
+                ],
+                borderColor: '#3b82f6',
+                backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                borderWidth: 4,
+                tension: 0.3,
+                pointBackgroundColor: '#fff',
+                pointBorderColor: '#3b82f6',
+                pointRadius: 5,
+                pointHoverRadius: 8
+            }]
+        };
+
+        new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        backgroundColor: '#1e2937',
+                        titleColor: '#fff',
+                        bodyColor: '#ddd',
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    y: {
+                        min: 70,
+                        max: 180,
+                        grid: { color: '#334155' },
+                        title: { display: true, text: 'Beats Per Minute (BPM)', color: '#ddd', font: { size: 14 } }
+                    },
+                    x: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#ddd', maxRotation: 75, minRotation: 75, font: { size: 11 } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
