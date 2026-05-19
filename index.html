@@ -3,18 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webtoons Master - BPM Progression</title>
-    <meta http-equiv="refresh" content="0; url=bpm-progression.html">
+    <title>Webtoons Master</title>
     <style>
-        body { background: #0a0a0a; color: #eee; font-family: system-ui, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .message { text-align: center; }
-        a { color: #60a5fa; text-decoration: none; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #0a0a0a; color: #eee; margin: 0; padding: 40px; text-align: center; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { font-size: 42px; margin-bottom: 10px; }
+        .subtitle { color: #aaa; margin-bottom: 50px; font-size: 20px; }
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .series-card {
+            background: #1a1a1a;
+            border: 3px solid #444;
+            border-radius: 16px;
+            padding: 40px 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+        .series-card:hover {
+            border-color: #60a5fa;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+        .series-card h2 {
+            font-size: 28px;
+            margin: 20px 0 10px;
+        }
+        .foxfire { border-color: #ff9f9f; }
+        .blushing { border-color: #c9b3ff; }
+        .gilded { border-color: #b3ffc9; }
     </style>
 </head>
 <body>
-    <div class="message">
-        <p>Redirecting to BPM Progression chart...</p>
-        <p>If not redirected, <a href="bpm-progression.html">click here</a>.</p>
+    <div class="container">
+        <h1>Webtoons Master</h1>
+        <p class="subtitle">Choose Your Series</p>
+        
+        <div class="series-grid">
+            <a href="foxfire-eternal/" class="series-card foxfire">
+                <h2>Foxfire Eternal</h2>
+                <p>Emotional Rollercoaster • Ongoing</p>
+            </a>
+            <a href="blushing-tails/" class="series-card blushing">
+                <h2>Blushing Tails</h2>
+                <p>Coming Soon</p>
+            </a>
+            <a href="gilded-gloom/" class="series-card gilded">
+                <h2>Gilded Gloom</h2>
+                <p>Coming Soon</p>
+            </a>
+        </div>
     </div>
 </body>
 </html>
